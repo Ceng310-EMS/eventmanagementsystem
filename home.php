@@ -12,6 +12,27 @@ require 'loginCheck.php';
 <body>
 	<?php
 		echo "Welcome ".$_SESSION["userName"]. "<br/>";
+
+		$connect = pg_connect("host=localhost port=5432 dbname=olayvar user=ceng310 password=eksibir");
+		if(!$connect)
+		{
+			echo "DB connection issue!!"; die();
+		}
+
+		else
+		{
+			$userName = $_SESSION["userName"];
+			$query="SELECT eMail FROM \"User\" WHERE \"userName\"='".$userName."' limit 1";
+			$res = pg_query($connect, $query);
+			echo "Your E-Mail address is ".$res."<br>";
+			<form action="profileUpdate.php">
+			<input type="submit" value="Change" />
+			</form>
+		
+		}
+
+
+		pg_close($connect);
 		?>
 		<a href=logout.php>Logout</a>
 </body>
