@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-	<title>Document</title>
+	<title>Login Page</title>
 	<script>
 		function isEmpty()
 		{
@@ -10,7 +10,7 @@
 			var field2= document.forms["login"]["pass"].value;
 			if ((field==null || field=="") || (field2==null || field2==""))
 			{
-				alert("Kullanıcı Adı ve Şifre boş bırakılamaz");
+				alert("Username or Password cannot be blank");
 				return false;
 			}
 		}
@@ -18,11 +18,11 @@
 </head>
 <body>
 		<form name="login" action="passControl.php" onsubmit="return isEmpty()" method="post">
-			<label for="Kullanici_Adi">Kullanıcı Adı</label>
+			<label for="Kullanici_Adi">Username</label>
 			<input type="text" name="userName" id="userName" /><br>
-			<label for="Password">Şifre</label>
+			<label for="Password">Password</label>
 			<input type="password" name="pass" id="pass" /><br>
-			<input type="submit" value="Submitt" />
+			<input type="submit" value="Login" />
 		</form>
 
 </body>

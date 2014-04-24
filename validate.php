@@ -2,21 +2,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-	<title>Document</title>
+	<title>Validation Pass</title>
 </head>
 <body>
 	<?php
 		if(!isset($_POST["userName"]) or !isset($_POST["pass"]) or !isset($_POST["pass2"]))
 		{
-			echo "Gerekli alanlar boş bırakılamaz<br>Yönlendiriliyorsunuz.";
-			header("Refresh: 3; url=loginPanel.php");
+			echo "Required fields cant be blank<br>You are redirecting.";
+			header("Refresh: 3; url=signup.php");
 		}
 		else
 		{
 			if($_POST["pass"]!=$_POST["pass2"])
 			{
-				echo "Şifreler uyuşmuyor<br>Tekrar deneyin<br>Yönlendiriliyorsunuz";
-				header("Refresh: 3; url=loginPanel.php");
+                echo "Password must be same<br>Try again<br>You are redirecting";
+				header("Refresh: 3; url=signup.php");
 			}
 			else
 			{
@@ -32,17 +32,22 @@
 					$eMail = $_POST["eMail"];
 					if (!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/",$eMail))
   					{
-  						$emailErr = "Invalid email format"; 
+  						$emailErr = "Invalid email format";
   						echo $emailErr;
-  						header("Refresh:2;loginPanel.php");
+  						header("Refresh:2;signup.php");
   					}
   					else
-  					{	$userID=0;
-  						$sql = "INSERT INTO member VALUES ('".$userName."','".$pass."','".$eMail."','".$userID."')";
+					{	$id=0;
+  						$sql = "INSERT INTO \"User\" VALUES ('".$id."','".$userName."','".$pass."','".$eMail."')";
   						$isExecuted = pg_query($connect,$sql);
-  						if($isExecuted)
+						echo pg_last_error($connect);
+						if($isExecuted)
   						{
-  							echo "Üyelik işleminiz tamamlanmıştır sayın ".$userName."<br> Sayfanıza Yönlendiriliyorsunuz";
+							
+  							echo "test";
+							$id++;
+  							echo "Thank you. You have done with registiration dear ".$userName."<br> You are redirecting";
+							header("Refresh:2;login.php");
   						}
 
   					}

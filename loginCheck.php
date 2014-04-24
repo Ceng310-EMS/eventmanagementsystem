@@ -4,10 +4,10 @@
 	if(!isset($_SESSION["login"])){
 
 
-		echo "ilk once giris yap gavat";
-		header("Refresh: 3; url=testPostgre.php");
+		echo "Please login first";
+		header("Refresh: 3; url=login.php");
 		die();
 
 	}
 	?>
-	
+

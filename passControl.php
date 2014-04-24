@@ -13,14 +13,13 @@
 		header("Refresh: 3; url=testPostgre.php");
 	}
 	*/
-	
+
 	//else
 	//
 
 	$userName=$_POST["userName"];
 	$pass=$_POST["pass"];
-	$query="SELECT adminName, password FROM Admin WHERE adminname='".$userName;
-	$query.="' AND password= '".$pass."'";
+	$query="SELECT * FROM \"User\" WHERE \"userName\"='".$userName."' AND pass='".$pass."' limit 1";
 	$isTruee = pg_query($connect, $query);
 	$numRows=pg_num_rows($isTruee);
 	if($numRows>0)
@@ -28,13 +27,13 @@
 		$_SESSION["login"] = true;
 		$_SESSION["userName"] = $userName;
 		echo "Welcome ".$userName."<br> Wait while redirecting please";
-		header("Refresh: 3; url=admin.php");
+		header("Refresh: 3; url=home.php");
 
 	}
 	else
 	{
 		echo "Wrong User Name Password Combination<br>Redirecting";
-		header("Refresh: 3; url=testPostgre.php");
+		header("Refresh: 3; url=login.php");
 	}
 //}
 pg_close($connect);
