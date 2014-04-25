@@ -6,20 +6,20 @@
 </head>
 <body>
 	<?php
-
+        require 'loginCheck.php';
 		$connect = pg_connect("host=localhost port=5432 dbname=olayvar user=ceng310 password=eksibir");
 		if(!$connect)
 		{
 			echo "DB connection issue!!"; die();
 		}
 
-			$query="SELECT eMail FROM \"User\" WHERE \"userName\"='".$_SESSION["userName"]."' limit 1";
+			$query="SELECT \"eMail\" FROM \"User\" WHERE \"userName\"='".$_SESSION["userName"]."' limit 1";
 			$res = pg_query($connect, $query);
-
+			$row = pg_fetch_row($res);
 		echo '<form action="executeUpdates.php" method="post">';
 		echo "New Password : ".'<input type="password" name="pass" id="pass" />';
 		echo "New Password : ".'<input type="password" name="pass2" id="pass2" />';
-		echo "E-Mail : ".'<input type="text" name="eMail" id="eMail" value="'.$res.'"/>';
+		echo "E-Mail : ".'<input type="text" name="eMail" id="eMail" value="'.$row[0].'"/>';
 		echo '<input type="submit" value="Save" />';
 		echo '</form>';
 

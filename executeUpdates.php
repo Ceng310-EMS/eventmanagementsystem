@@ -7,7 +7,7 @@
 <body>
 	<?php
 
-
+        require 'loginCheck.php';
 		$connect = pg_connect("host=localhost port=5432 dbname=olayvar user=ceng310 password=eksibir");
 		if(!$connect)
 		{
@@ -18,7 +18,7 @@
 		{
 			if($_POST["pass"]==$_POST["pass2"])
 			{
-				$sql = "UPDATE User SET password='".$_POST["pass"]."',eMail='".$_POST["eMail"]."' WHERE userName='".$_SESSION["userName"]."'";
+				$sql = "UPDATE \"User\" SET pass='".$_POST["pass"]."',\"eMail\"='".$_POST["eMail"]."' WHERE \"userName\"='".$_SESSION["userName"]."'";
 				$isDone = pg_query($connect,$sql);
 				if($isDone)
 				{
@@ -38,6 +38,6 @@
 
 
 	?>
-	
+
 </body>
 </html>

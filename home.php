@@ -22,18 +22,22 @@ require 'loginCheck.php';
 		else
 		{
 			$userName = $_SESSION["userName"];
-			$query="SELECT eMail FROM \"User\" WHERE \"userName\"='".$userName."' limit 1";
+		        $query="SELECT \"eMail\" FROM \"User\" WHERE \"userName\"='".$userName."' limit 1";
 			$res = pg_query($connect, $query);
-			echo "Your E-Mail address is ".$res."<br>";
-			<form action="profileUpdate.php">
-			<input type="submit" value="Change" />
-			</form>
-		
+			while($row = pg_fetch_row($res)){
+				echo "Your E-mail address is  $row[0]"."<br/>";
+			}
+			#echo "Your E-Mail address is ".$res."<br>";
+			#<form action="profileUpdate.php">
+			#<input type="submit" value="Change" />
+			#</form>
+
 		}
 
 
 		pg_close($connect);
 		?>
+        <a href=profileUpdate.php>Update Profile</a>
 		<a href=logout.php>Logout</a>
 </body>
 </html>
