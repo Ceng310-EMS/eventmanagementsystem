@@ -25,5 +25,6 @@
 
 		pg_close($connect);
 	?>
+    <a href=home.php>Home Page</a>
 </body>
 </html>
