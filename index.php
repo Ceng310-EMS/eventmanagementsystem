@@ -7,6 +7,6 @@
 <body>
 	<a href="login.php">Sign In</a><br/>
     <a href= "signup.php">Sign Up</a>
-
+    <a href="createEvent.php">Create Event</a>
 </body>
 </html>
