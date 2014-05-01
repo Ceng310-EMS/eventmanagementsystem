@@ -1,11 +1,23 @@
-
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
 <?php
 	session_start();
-	$connect = pg_connect("host=localhost port=5432 dbname=olayvar user=ceng310 password=eksibir");
+	
+	require 'database.php';
+	/*$connect = pg_connect("host=localhost port=5432 dbname=olayvar user=ceng310 password=eksibir");
 	if(!$connect)
 	{
 		echo "DB connection issue!!"; die();
-	}
+	}*/
+
+
 	/*if(!isset($_POST["userName"]) or !isset($_POST["pass"]))
 	{
 
@@ -16,11 +28,13 @@
 
 	//else
 	//
-
+	
 	$userName=$_POST["userName"];
 	$pass=$_POST["pass"];
-	$query="SELECT * FROM \"User\" WHERE \"userName\"='".$userName."' AND pass='".$pass."' limit 1";
-	$isTruee = pg_query($connect, $query);
+	
+	$query="SELECT * FROM \"User\" WHERE \"username\"='".$userName."' AND pass='".$pass."' limit 1";
+	$isTruee = pg_query($_SESSION["connect"], $query);
+	
 	$numRows=pg_num_rows($isTruee);
 	if($numRows>0)
 	{
@@ -36,5 +50,5 @@
 		header("Refresh: 3; url=login.php");
 	}
 //}
-pg_close($connect);
+pg_close($_SESSION["connect"]);
 ?>

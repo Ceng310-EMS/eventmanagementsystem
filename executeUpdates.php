@@ -2,24 +2,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-	<title>Document</title>
+	<title>Update</title>
 </head>
 <body>
 	<?php
-
+		
+		
         require 'loginCheck.php';
-		$connect = pg_connect("host=localhost port=5432 dbname=olayvar user=ceng310 password=eksibir");
-		if(!$connect)
-		{
-			echo "DB connection issue!!"; die();
-		}
+        require 'database.php';
+        
+		
+		
 
-		if(isset ($_POST["pass"]) and isset($_POST["pass2"]))
-		{
+		if ((isset($_POST["pass"]) and isset($_POST["pass2"])) and ($_POST["pass"]!="" and $_POST["pass2"]!=""))
+		{	
+			
 			if($_POST["pass"]==$_POST["pass2"])
-			{
-				$sql = "UPDATE \"User\" SET pass='".$_POST["pass"]."',\"eMail\"='".$_POST["eMail"]."' WHERE \"userName\"='".$_SESSION["userName"]."'";
-				$isDone = pg_query($connect,$sql);
+			{ 
+				$sql = "UPDATE \"User\" SET pass='".$_POST["pass"]."',\"email\"='".$_POST["eMail"]."' WHERE \"username\"='".$_SESSION["userName"]."'";
+				$isDone = pg_query($_SESSION["connect"],$sql);
 				if($isDone)
 				{
 					echo "Your profile has been updated you are being redirected";
@@ -34,10 +35,36 @@
 			}
 
 		}
-		pg_close($connect);
+		else
+		{
+					
+				if(($_POST["pass"]!="" and $_POST["pass2"]=="") or ($_POST["pass"]=="" and $_POST["pass2"]!=""))
+				{
+					echo "One of the oassword field is left empty.<br>Redirecting";
+					header("Refresh: 3; url=home.php");
+				}
+				else
+				{
+					$sql = "UPDATE \"User\" SET \"email\"='".$_POST["eMail"]."' WHERE \"username\"='".$_SESSION["userName"]."'";
+					$isDone = pg_query($_SESSION["connect"],$sql);
+					if($isDone)
+					{
+						echo "Your profile has been updated you are being redirected";
+						header("Refresh: 3; url=home.php");
 
+					}
+					else
+					{
+						echo "Update FAILED you are being redirected";
+						header("Refresh: 3; url=home.php");
+					}
+				}
+		}
+		pg_close($_SESSION["connect"]);
+		
+
+		
 
 	?>
-
 </body>
 </html>

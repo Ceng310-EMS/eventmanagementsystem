@@ -6,6 +6,8 @@
 </head>
 <body>
 	<?php
+		require 'database.php';
+
 		if(!isset($_POST["userName"]) or !isset($_POST["pass"]) or !isset($_POST["pass2"]))
 		{
 			echo "Required fields cant be blank<br>You are redirecting.";
@@ -20,13 +22,14 @@
 			}
 			else
 			{
-				$connect = pg_connect("host=localhost port=5432 dbname=olayvar user=ceng310 password=eksibir");
+
+				/*$connect = pg_connect("host=localhost port=5432 dbname=olayvar user=ceng310 password=eksibir");
 				if(!$connect)
 				{
 					echo "DB connection issue!!"; die();
-				}
-				else
-				{
+				}*/
+				
+				
 					$userName = $_POST["userName"];
 					$pass = $_POST["pass"];
 					$eMail = $_POST["eMail"];
@@ -37,23 +40,29 @@
   						header("Refresh:2;signup.php");
   					}
   					else
-					{	$id=0;
-  						$sql = "INSERT INTO \"User\" VALUES ('".$id."','".$userName."','".$pass."','".$eMail."')";
-  						$isExecuted = pg_query($connect,$sql);
+					{	#$id=19;
+  						$sql = "INSERT INTO \"User\"(username,pass,email) VALUES ('".$userName."','".$pass."','".$eMail."')";
+  						$isExecuted = pg_query($_SESSION["connect"],$sql);
 						echo pg_last_error($connect);
 						if($isExecuted)
   						{
 							
   							echo "test";
-							$id++;
+							#$id++;
   							echo "Thank you. You have done with registiration dear ".$userName."<br> You are redirecting";
 							header("Refresh:2;login.php");
   						}
+  						else
+  						{
+							echo "kayıt yapılamadı";
+
+  						}
 
   					}
-				}
+				
 			}
 		}
+		pg_close($_SESSION["connect"]);
 	?>
 </body>
 </html>

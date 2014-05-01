@@ -11,19 +11,20 @@ require 'loginCheck.php';
 </head>
 <body>
 	<?php
+		require 'database.php';
 		echo "Welcome ".$_SESSION["userName"]. "<br/>";
 
-		$connect = pg_connect("host=localhost port=5432 dbname=olayvar user=ceng310 password=eksibir");
+		/*$connect = pg_connect("host=localhost port=5432 dbname=olayvar user=ceng310 password=eksibir");
 		if(!$connect)
 		{
 			echo "DB connection issue!!"; die();
-		}
+		}*/
 
-		else
-		{
+		
+		
 			$userName = $_SESSION["userName"];
 		        $query="SELECT \"eMail\" FROM \"User\" WHERE \"userName\"='".$userName."' limit 1";
-			$res = pg_query($connect, $query);
+			$res = pg_query($_SESSION["connect"], $query);
 			while($row = pg_fetch_row($res)){
 				echo "Your E-mail address is  $row[0]"."<br/>";
 			}
@@ -32,10 +33,10 @@ require 'loginCheck.php';
 			#<input type="submit" value="Change" />
 			#</form>
 
-		}
+		
 
 
-		pg_close($connect);
+		pg_close($_SESSION["connect"]);
 		?>
         <a href=profileUpdate.php>Update Profile</a>
 		<a href=logout.php>Logout</a>

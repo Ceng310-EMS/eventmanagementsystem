@@ -7,14 +7,15 @@
 <body>
 	<?php
         require 'loginCheck.php';
-		$connect = pg_connect("host=localhost port=5432 dbname=olayvar user=ceng310 password=eksibir");
+        require 'database.php';
+		/*$connect = pg_connect("host=localhost port=5432 dbname=olayvar user=ceng310 password=eksibir");
 		if(!$connect)
 		{
 			echo "DB connection issue!!"; die();
-		}
+		}*/
 
-			$query="SELECT \"eMail\" FROM \"User\" WHERE \"userName\"='".$_SESSION["userName"]."' limit 1";
-			$res = pg_query($connect, $query);
+			$query="SELECT \"email\" FROM \"User\" WHERE \"username\"='".$_SESSION["userName"]."' limit 1";
+			$res = pg_query($_SESSION["connect"], $query);
 			$row = pg_fetch_row($res);
 		echo '<form action="executeUpdates.php" method="post">';
 		echo "New Password : ".'<input type="password" name="pass" id="pass" />';
@@ -23,7 +24,7 @@
 		echo '<input type="submit" value="Save" />';
 		echo '</form>';
 
-		pg_close($connect);
+		pg_close($_SESSION["connect"]);
 	?>
     <a href=home.php>Home Page</a>
 </body>
