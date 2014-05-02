@@ -20,10 +20,10 @@ require 'loginCheck.php';
 			echo "DB connection issue!!"; die();
 		}*/
 
-		
-		
+
+
 			$userName = $_SESSION["userName"];
-		        $query="SELECT \"eMail\" FROM \"User\" WHERE \"userName\"='".$userName."' limit 1";
+		        $query="SELECT \"email\" FROM \"User\" WHERE \"username\"='".$userName."' limit 1";
 			$res = pg_query($_SESSION["connect"], $query);
 			while($row = pg_fetch_row($res)){
 				echo "Your E-mail address is  $row[0]"."<br/>";
@@ -33,7 +33,7 @@ require 'loginCheck.php';
 			#<input type="submit" value="Change" />
 			#</form>
 
-		
+
 
 
 		pg_close($_SESSION["connect"]);
