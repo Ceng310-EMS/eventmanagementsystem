@@ -6,8 +6,7 @@
 </head>
 <body>
 	<?php
-		session_start();
-		$connect = pg_connect("host=localhost port=5432 dbname=olayvar user=ceng310 password=eksibir");
+		$connect = pg_connect("host=localhost port=5432 dbname=olayvar user=erkoc password=6465");
 		$_SESSION["connect"] = $connect;
 		if(!$connect)
 		{
