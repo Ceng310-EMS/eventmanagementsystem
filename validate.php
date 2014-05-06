@@ -28,8 +28,8 @@
 				{
 					echo "DB connection issue!!"; die();
 				}*/
-				
-				
+
+
 					$userName = $_POST["userName"];
 					$pass = $_POST["pass"];
 					$eMail = $_POST["eMail"];
@@ -41,12 +41,19 @@
   					}
   					else
 					{	#$id=19;
-  						$sql = "INSERT INTO \"User\"(username,pass,email) VALUES ('".$userName."','".$pass."','".$eMail."')";
+                        $activation = md5($eMail.time());
+                        $sql = "INSERT INTO \"User\"(username,pass,email,activation) VALUES ('".$userName."','".$pass."','".$eMail."','".$activation."')";
+  						#$sql = "INSERT INTO \"User\"(username,pass,email) VALUES ('".$userName."','".$pass."','".$eMail."')";
   						$isExecuted = pg_query($_SESSION["connect"],$sql);
 						echo pg_last_error($connect);
 						if($isExecuted)
   						{
-							
+                            include 'mail/Send_Mail.php';
+                            $to=$eMail;
+                            $subject="Email verification";
+                            $body='Hi, <br/> <br/> We need to make sure you are human. Please verify your email and get started using your Website account. <br/> <br/> <a href="'.$base_url.$activation.'">'.$base_url.'activation/'.$activation.'</a>';
+                            Send_Mail($to,$subject,$body);
+                            $msg= "Registration successful, please activate email.";
   							echo "test";
 							#$id++;
   							echo "Thank you. You have done with registiration dear ".$userName."<br> You are redirecting";
@@ -59,7 +66,7 @@
   						}
 
   					}
-				
+
 			}
 		}
 		pg_close($_SESSION["connect"]);

@@ -12,7 +12,7 @@
 		{
 			echo "DB connection issue!!"; die();
 		}
-
+    $base_url='http://localhost:8080/activation.php?code=';
 	?>
 </body>
 </html>
