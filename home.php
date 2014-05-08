@@ -13,7 +13,7 @@ require 'loginCheck.php';
 	<?php
 		require 'database.php';
 		echo "Welcome ".$_SESSION["userName"]. "<br/>";
-
+        echo $_SESSION["id"]."<br/>";
 		/*$connect = pg_connect("host=localhost port=5432 dbname=olayvar user=ceng310 password=eksibir");
 		if(!$connect)
 		{
