@@ -38,7 +38,8 @@ require 'loginCheck.php';
 
 		pg_close($_SESSION["connect"]);
 		?>
-        <a href=profileUpdate.php>Update Profile</a>
-		<a href=logout.php>Logout</a>
+        <a href=profileUpdate.php>Update Profile</a><br/>
+        <a href=createEvent.php>Create Event</a><br/>
+        <a href=logout.php>Logout</a>
 </body>
 </html>
