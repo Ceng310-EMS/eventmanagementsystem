@@ -42,12 +42,13 @@
     $query="SELECT * FROM \"User\" WHERE \"username\"='".$userName."' AND pass='".$pass."' AND status='1' limit 1";
     #echo $query;
 	$isTruee = pg_query($_SESSION["connect"], $query);
-
+    $values = pg_fetch_array($isTruee,NULL, PGSQL_ASSOC);
 	$numRows=pg_num_rows($isTruee);
 	if($numRows>0)
 	{
 		$_SESSION["login"] = true;
-		$_SESSION["userName"] = $userName;
+        $_SESSION["userName"] = $userName;
+        $_SESSION["id"]=$values["id"];
 		echo "Welcome ".$userName."<br> Wait while redirecting please";
 		header("Refresh: 3; url=home.php");
 
