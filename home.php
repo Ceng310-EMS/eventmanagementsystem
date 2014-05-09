@@ -13,7 +13,7 @@ require 'loginCheck.php';
 	<?php
 		require 'database.php';
 		echo "Welcome ".$_SESSION["userName"]. "<br/>";
-        echo $_SESSION["id"]."<br/>";
+        echo "User id ".$_SESSION["id"]."<br/>";
 		/*$connect = pg_connect("host=localhost port=5432 dbname=olayvar user=ceng310 password=eksibir");
 		if(!$connect)
 		{
@@ -31,15 +31,22 @@ require 'loginCheck.php';
 			#echo "Your E-Mail address is ".$res."<br>";
 			#<form action="profileUpdate.php">
 			#<input type="submit" value="Change" />
-			#</form>
-
+            #</form>
+            $u_id = $_SESSION["id"];
+            $sql = "select event.title from event,participate where $u_id = participate.u_id and event.e_id = participate.e_id ";
+            $source = pg_query($_SESSION["connect"], $sql);
+            while($data = pg_fetch_row($source)){
+                echo "Joined event $data[0] - ";
+            }
 
 
 
 		pg_close($_SESSION["connect"]);
 		?>
-        <a href=profileUpdate.php>Update Profile</a><br/>
+        <br/><a href=profileUpdate.php>Update Profile</a><br/>
         <a href=createEvent.php>Create Event</a><br/>
+        <a href=myevent.php>My event</a><br/>
+        <a href=joinEvent.php>Show events</a><br/>
         <a href=logout.php>Logout</a>
 </body>
 </html>

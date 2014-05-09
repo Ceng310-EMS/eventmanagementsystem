@@ -13,11 +13,13 @@
 	$isExecuted=pg_query($_SESSION["connect"], $sql);
 	if($isExecuted)
 	{
-		echo "saved";
+		echo "Event created";
+        header("Refresh: 2; url=myevent.php");
 	}
 	else
 	{
-		echo "error";
+		echo "Something go wrong while creating event";
+        header("Refresh: 2; url=createEvent.php");
 	}
 	pg_close($_SESSION["connect"]);
 	?>

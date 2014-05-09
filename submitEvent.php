@@ -13,7 +13,7 @@
     pg_query($_SESSION["connect"],$update);
 
     echo "Event registiration successfull";
-
+    header("Refresh:3; url=home.php");
     pg_close($_SESSION["connect"]);
 
 ?>

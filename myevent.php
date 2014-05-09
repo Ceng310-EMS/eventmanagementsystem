@@ -24,6 +24,7 @@
         echo "Description: ".$row[7]."<br/>";
         echo "User id: ".$row[8]."<br/>";
         echo "Quato: ".$row[9]."<br/>";
+        echo "<hr/>";
     }
    ?>
    <a href=home.php>Home Page</a>
