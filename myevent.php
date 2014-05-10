@@ -25,7 +25,16 @@
         echo "User id: ".$row[8]."<br/>";
         echo "Quato: ".$row[9]."<br/>";
         echo "<hr/>";
+        $logo_id = $row[6];
     }
+    $sql = "select path from logo where l_id ="."$logo_id";
+    echo $sql."<br/>";
+    $info = pg_query($_SESSION["connect"],$sql);
+        while($data =pg_fetch_array($info)){
+            $path= "logo/".$data[0];
+            echo '<img src="'.$path.'"/>';
+        }
+
    ?>
    <a href=home.php>Home Page</a>
 </body>

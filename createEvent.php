@@ -69,7 +69,7 @@ function MM_swapImage() { //v3.0
   <div id="divider"><img src="malzemeler/divider.png" width="980" height="26" /></div>
   <div id="panel">
 	<div id="ceventpanel">
-    	<form class="well" name="createEvent" action="saveEvent.php" method="post">
+    	<form class="well" name="createEvent" action="saveEvent.php" method="post" enctype="multipart/form-data">
         <label><h3>Add Event Details</h3></label>
         <div id="ceventpanelalt">
         <label><h5>Event Title<span style="color:#F00">*</span></h5></label>
@@ -113,7 +113,8 @@ function MM_swapImage() { //v3.0
         <input type="datetime-local" name="startDate" id="startDate" required="required"/>&nbsp;&nbsp;&nbsp;<h7> & </h7>&nbsp;&nbsp;&nbsp;
         <label><h5>Event Logo</h5></label>
         <img name="" width="97" height="94" alt="" src="malzemeler/default_upload_logo.gif" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <button type="button" class="btn">Choose File</button><br/>
+        <!--<button type="button" class="btn">Choose File</button><br/>-->
+        <input type="file" name="file" id="file"><br/>
         <label><h5>Event Description</h5></label>
         <textarea style="resize:none" class="span7" cols="200" rows="7" name="description" id="description" placeholder="Tell people what's special about your event and why they won't want to miss it!" ></textarea><br/>
         <label><h5>Quato </h5></label>
