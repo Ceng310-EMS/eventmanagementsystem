@@ -9,6 +9,11 @@
     #    $u_id = $row[0];
     #}
     $u_id = $_SESSION["id"];
+    $_POST["title"] = htmlspecialchars($_POST["title"]);
+    $_POST["type"] = htmlspecialchars($_POST["type"]);
+    $_POST["topic"] = htmlspecialchars($_POST["topic"]);
+    $_POST["location"] = htmlspecialchars($_POST["location"]);
+    $description = htmlspecialchars($_POST["description"]);
 	$sql="INSERT INTO event (title, type, topic, location, date, logo_id, description, u_id, quato) VALUES ('".$_POST["title"]."','".$_POST["type"]."','".$_POST["topic"]."','".$_POST["location"]."','".$_POST["startDate"]."','"."1"."','".$_POST["description"]."','".$u_id."','".$_POST["quato"]."')";
 	$isExecuted=pg_query($_SESSION["connect"], $sql);
 	if($isExecuted)
