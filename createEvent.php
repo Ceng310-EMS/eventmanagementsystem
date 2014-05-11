@@ -49,12 +49,12 @@ function MM_swapImage() { //v3.0
     <div id="logo"></div>
     <div id="menu">
       <ul>
-        <li><a href="cevent.php">Create Event</a></li>
-        <li><a href="myevents.php">My Events</a></li>
-        <li><a href="myprofile.php">My Profile</a></li>
-        <li><a href="account.php">Account</a></li>
-        <li><a href="index.php">Logout</a></li>
-        <li><a href="#">Kullanıcı Adı</a></li>
+         <li><a href="createEvent.php">Create Event</a></li>
+        <li><a href="myevent.php">My Events</a></li>        
+        <li><a href="home.php">My Profile</a></li>
+        <li><a href="account.html">Account</a></li>
+        <li><a href="logout.php">Logout</a></li>
+        <li><a href="home.php">Home</a></li>
       </ul>
     </div>
   </div>

@@ -93,12 +93,12 @@ margin0;  list-style-type: none;
     <a href="index.php"><div id="logo"></div></a>
     <div id="menu">
       <ul>
-        <li><a href="createEvent.php">Create Event</a></li>
-        <li><a href="myevent.php">My Events</a></li>        
-        <li><a href="home.php">My Profile</a></li>
-        <li><a href="account.html">Account</a></li>
-        <li><a href="logout.php">Logout</a></li>
-        <li><a href="home.php">Home</a></li>
+        <li><a href="events.php">Find events</a></li>
+        <li><a href="createEvent.php">Create Events</a></li>        
+        <li><a href="index.php">Top Events</a></li>
+        <li><a href="contact.php">Contact Us</a></li>
+        <li><a href="login.php">Login</a></li>
+        <li><a href="signup.php">Sign Up</a></li>
       </ul>
     </div>
 </div>
@@ -114,8 +114,9 @@ margin0;  list-style-type: none;
 <div id="bosluk"></div>
     <div id="myevents">     
         <?php
-    $id = $_SESSION["id"];
-    $resource = pg_query($_SESSION["connect"],"select * from event where u_id = $id");
+         $e_id = $_POST["selectedEvent"];
+
+        $resource = pg_query($_SESSION["connect"],"select * from event where e_id = $e_id");
     while($row=pg_fetch_array($resource)){
         echo "Ticket Number: ".$row[0]."<br/>";
         echo "Title: ".$row[1]."<br/>";
@@ -135,13 +136,20 @@ margin0;  list-style-type: none;
             $path= "logo/".$data[0];
             echo '<img src="'.$path.'" with=100 height=100/>'."<br/>";
         }
-        echo '<a href="editEvent.php?eid='.$row[0].'">'."Edit Event".'</a>'."<br/>";
         echo "<hr/>";
         
     }
+    ?>
+
+     <form action="submitEvent.php" method="POST">
+	  <input type="hidden" name ="selectedEvent" value =" <?php echo $e_id;?>" />
+    <input type="submit" value="Join"/>
+
+	</form>
 
 
-   ?>
+
+  
     
      </div>   
        

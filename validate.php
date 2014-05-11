@@ -54,14 +54,13 @@
                             $body='Hi, <br/> <br/> We need to make sure you are human. Please verify your email and get started using your Website account. <br/> <br/> <a href="'.$base_url.$activation.'">'.$base_url.'activation/'.$activation.'</a>';
                             Send_Mail($to,$subject,$body);
                             $msg= "Registration successful, please activate email.";
-  							echo "test";
-							#$id++;
-  							echo "Thank you. You have done with registiration dear ".$userName."<br> You are redirecting";
+  							
+  							echo "Thank you. You have done with registiration Dear ".$userName."<br> You are redirecting";
 							header("Refresh:2;login.php");
   						}
   						else
   						{
-							echo "kayıt yapılamadı";
+							echo "Something go wrong :(";
 
   						}
 

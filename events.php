@@ -54,7 +54,7 @@ function MM_swapImage() { //v3.0
    <a href="index.php"><div id="logo"></div></a>
    <div id="menu">
      <ul>
-       <li><a href="createEvent.php">Create Event</a></li>
+      <li><a href="createEvent.php">Create Event</a></li>
         <li><a href="myevent.php">My Events</a></li>        
         <li><a href="home.php">My Profile</a></li>
         <li><a href="account.html">Account</a></li>
@@ -75,68 +75,30 @@ function MM_swapImage() { //v3.0
  <div id="panel">
 <div id="homepanel">
    <div id="homepanelleft">
-   	<form class="well">
-      <?php
-      $userName = $_SESSION["userName"];
-       $getId = "select p_id from \"User\" where \"username\" = '".$userName."' limit 1 ";
-
-            $data = pg_query($_SESSION["connect"], $getId);
-            while($val = pg_fetch_array($data)){
-              $value = $val[0];
-            }
-
-      $sql = "select path from photo,\"User\" where  photo.p_id ="."$value";
-            $source = pg_query($_SESSION["connect"], $sql);
-            while($data = pg_fetch_row($source)){
-                $path= "photo/".$data[0];
-
-            }
-            echo "<br/>".'<img src="'.$path.'" with="100" height="100"/>';
-      ?>
-
-       
-       </form>
-       </div>
+   	
+    </div>
        <div id="homepanelright">
-         <?php
-         $userName = $_SESSION["userName"];
-           $query="SELECT \"email\" FROM \"User\" WHERE \"username\"='".$userName."' limit 1";
-           $res = pg_query($_SESSION["connect"], $query);
-           /*while($row = pg_fetch_row($res)){
-           echo "Your E-mail address is  $row[0]"."<br/>";
-     }*/
-           $row = pg_fetch_array($res, NULL, PGSQL_ASSOC);
-           $query="SELECT \"description\" FROM \"User\" WHERE \"username\"='".$userName."' limit 1";
-           $res2 = pg_query($_SESSION["connect"], $query);
-           $row2 = pg_fetch_array($res2, NULL, PGSQL_ASSOC);
-
-
-     ?>
-       <form class="well">
-       	<label><h5>User Name : <?php echo $_SESSION["userName"]; ?></h5></label><br/> 
-         <div hidden="homepanelright"></div>
-           
-            <label><h5>E-Mail : <?php echo $row["email"]; ?></h5></label><br/> <!--echo $row["email"];-->
-           <label><h5>Description : <?php echo $row2["description"]; ?></h5></label><br/>
-
-           <?php
-             $u_id = $_SESSION["id"];
-            $sql = "select event.title from event,participate where $u_id = participate.u_id and event.e_id = participate.e_id ";
-            $source = pg_query($_SESSION["connect"], $sql);
-            echo '<label><h5>Joined Event</h5></label>';
-            while($data = pg_fetch_row($source)){
-                echo '<label><h6>'."$data[0]".'</h5></label>';
-            }
-            
-            ?>         
-           
-       </form>
+       
        </div>
    </div>
   
 </div>
+  <form action="showEvent.php" method="POST">
+     <td><select name="selectedEvent"></td>
+<?php
+     $sql = "SELECT e_id,description from event";
+     $resource = pg_query($_SESSION["connect"],"SELECT e_id,title FROM event");
 
-<?php pg_close($_SESSION["connect"]); ?>
+    while ($row = pg_fetch_row($resource))
+            {
+              echo "<option value='". $row[0] ."'>" . $row[1] . "</option>";
+            }
+        pg_close($_SESSION["connect"]);
+?>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="submit" value="Show"/>
+
+
 <script src "js/bootstrap.js"></script>
 </body>
 </html>

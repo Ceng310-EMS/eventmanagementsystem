@@ -6,6 +6,8 @@
     $u_id = $_SESSION["id"];
     $e_id = $_POST["selectedEvent"];
 
+    echo $e_id;
+
     $insert = "Insert into participate values($u_id,$e_id)";
     $update = "update event set quato=quato-1 where e_id = $e_id";
 

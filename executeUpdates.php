@@ -10,7 +10,8 @@
 		
         require 'loginCheck.php';
         require 'database.php';
-        
+        $path = NULL;
+        if(isset($_FILES["file"]["name"])){
         $directory = $_SERVER['DOCUMENT_ROOT'] . '/photo/';
     	echo $directory;
     	$allowedExts = array("gif", "jpeg", "jpg", "png");
@@ -51,6 +52,7 @@
 			    } else {
 			      echo "Invalid file";
 			    }
+			}
 			    $description = $_POST["description"];
 				$insertDescription = "Update \"User\" set description ="."'$description'"." where id="."$id";
 				echo $insertDescription;
