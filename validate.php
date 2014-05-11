@@ -42,7 +42,7 @@
   					else
 					{	#$id=19;
                         $activation = md5($eMail.time());
-                        $sql = "INSERT INTO \"User\"(username,pass,email,activation) VALUES ('".$userName."','".$pass."','".$eMail."','".$activation."')";
+                        $sql = "INSERT INTO \"User\"(username,pass,email,activation,p_id) VALUES ('".$userName."','".$pass."','".$eMail."','".$activation."',10)";
   						#$sql = "INSERT INTO \"User\"(username,pass,email) VALUES ('".$userName."','".$pass."','".$eMail."')";
   						$isExecuted = pg_query($_SESSION["connect"],$sql);
 						echo pg_last_error($connect);

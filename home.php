@@ -35,10 +35,25 @@ require 'loginCheck.php';
             $u_id = $_SESSION["id"];
             $sql = "select event.title from event,participate where $u_id = participate.u_id and event.e_id = participate.e_id ";
             $source = pg_query($_SESSION["connect"], $sql);
+            echo "------Joined evet------"."<br/>";
             while($data = pg_fetch_row($source)){
-                echo "Joined event $data[0] - ";
+                echo "$data[0] - ";
+            }
+            echo "<br/>"."------------------------"."<br/>";
+            $getId = "select p_id from \"User\" where \"username\" = '".$userName."' limit 1 ";
+
+            $data = pg_query($_SESSION["connect"], $getId);
+            while($val = pg_fetch_array($data)){
+            	$value = $val[0];
             }
 
+            $sql = "select path from photo,\"User\" where  photo.p_id ="."$value";
+            $source = pg_query($_SESSION["connect"], $sql);
+            while($data = pg_fetch_row($source)){
+                $path= "photo/".$data[0];
+
+            }
+            echo "<br/>".'<img src="'.$path.'"/>';
 
 
 		pg_close($_SESSION["connect"]);

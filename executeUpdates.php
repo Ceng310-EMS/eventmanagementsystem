@@ -11,7 +11,63 @@
         require 'loginCheck.php';
         require 'database.php';
         
-		
+        $directory = $_SERVER['DOCUMENT_ROOT'] . '/photo/';
+    	echo $directory;
+    	$allowedExts = array("gif", "jpeg", "jpg", "png");
+	    $temp = explode(".", $_FILES["file"]["name"]);
+	    $extension = end($temp);
+
+		     if ((($_FILES["file"]["type"] == "image/gif")
+		    || ($_FILES["file"]["type"] == "image/jpeg")
+		    || ($_FILES["file"]["type"] == "image/jpg")
+		    || ($_FILES["file"]["type"] == "image/pjpeg")
+		    || ($_FILES["file"]["type"] == "image/x-png")
+		    || ($_FILES["file"]["type"] == "image/png"))
+		    && ($_FILES["file"]["size"] < 2000000)
+		    && in_array($extension, $allowedExts)) {
+		      if ($_FILES["file"]["error"] > 0) {
+		        echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
+		      } else {
+		        echo "Upload: " . $_FILES["file"]["name"] . "<br>";
+		        echo "Type: " . $_FILES["file"]["type"] . "<br>";
+		        echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
+		        echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br>";
+		        if (file_exists($directory . $_FILES["file"]["name"])) {
+		          echo $_FILES["file"]["name"] . " already exists. ";
+		        } else {
+		          $fname  = $_FILES["file"]["name"];
+		          $fname  = str_replace(" ","",$fname);
+
+		          move_uploaded_file($_FILES["file"]["tmp_name"],
+		          $directory . $fname);
+		          echo "Stored in: " . $directory . $fname;
+		          $path = $fname;
+		        }
+		      }
+		       $id = $_SESSION["id"];
+		       $insert = "INSERT INTO photo(path) VALUES('".$path."')";
+
+			      pg_query($_SESSION["connect"],$insert);
+			    } else {
+			      echo "Invalid file";
+			    }
+			    $description = $_POST["description"];
+				$insertDescription = "Update \"User\" set description ="."'$description'"." where id="."$id";
+				echo $insertDescription;
+				pg_query($_SESSION["connect"],$insertDescription);
+
+
+				$getId = "select p_id from photo where path = "."'$path'";
+			    echo $getId;
+			    $resource = pg_query($_SESSION["connect"],$getId);
+			    while($p_id = pg_fetch_array($resource)){
+			      $photo_id = $p_id[0];
+			      echo $photo_id;
+			    }
+			    
+			    $insertPhotoid = "Update \"User\" set p_id ="."$photo_id"." where id="."$id";
+			    echo $insertPhotoid;
+			    pg_query($_SESSION["connect"],$insertPhotoid);
 		
 
 		if ((isset($_POST["pass"]) and isset($_POST["pass2"])) and ($_POST["pass"]!="" and $_POST["pass2"]!=""))
