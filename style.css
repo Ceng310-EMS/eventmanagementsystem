@@ -1,0 +1,280 @@
+@charset "utf-8";
+body {
+	background-image: url(malzemeler/bg.jpg);
+	background-repeat: repeat;
+}
+#container {
+	background-color: #FFF;
+	padding: 10px;
+	height: auto;
+	width: 980px;
+	margin-right: auto;
+	margin-left: auto;
+	border: 1px solid #CCC;
+}
+#header {
+	height: 127px;
+	width: 100%;
+}
+
+#logo {
+	height: 127px;
+	width: 280px;
+	float: left;
+	background-image:url(malzemeler/logo.png);	
+	background-repeat: no-repeat;
+}
+#menu {
+	background-image: url(malzemeler/bgMenu.png);
+	background-repeat: no-repeat;
+	height: 40px;
+	width: 700px;
+	float: left;
+	margin-top: 87px;
+}
+#container #header #menu ul {
+	padding: 0px;
+	list-style-type: none;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 20px;
+}
+#container #header #menu ul li a {
+	display: block;
+	float: left;
+	height: 40px;
+	width: 110px;
+	color: #000000;
+	text-decoration: none;
+	font-weight: bold;
+	text-align: center;
+	line-height: 40px;
+}
+
+#container #header #menu ul li a:hover {
+	display: block;
+	float: left;
+	height: 40px;
+	width: 110px;
+	text-decoration: none;
+	font-weight: bold;
+	text-align: center;
+	line-height: 40px;
+	color: #993300;
+}
+#container #header #menu ul li Contact Us a:hover {
+	display: block;
+	float: left;
+	height: 40px;
+	width: 110px;
+	color: #077936;
+	text-decoration: none;
+	font-weight: bold;
+	text-align: center;
+	line-height: 40px;
+}
+
+#clear-header {
+	clear: both;
+}
+#banner {
+	height: 12px;
+	width: 980px;
+	background-image: url(malzemeler/bgSlide.png);
+	background-repeat: no-repeat;
+}
+#divider {
+	height: 26px;
+	width: 980px;
+}
+#panel {
+	height:auto;
+	width: 980px;
+}
+#log {
+	height:auto;
+	width: 360px;
+	margin-right: 310px;
+	margin-left: 310px;
+	margin-top: 19px;
+	margin-bottom: 19px;
+	text-align: left;
+	font-size: 18px;
+	
+}
+#log1 {
+	height: 45px;
+	width: 320px;
+	text-align: center;
+	font-size: 36px;
+	vertical-align: middle;
+}
+#or {
+	height: 50px;
+	width: 320px;
+	text-align: center;
+	font-size: 18px;
+}
+#bos {
+	height: 140px;
+	width: 288px;
+	margin-right: 36px;
+	margin-left: 36px;
+}
+#container #panel #log #button {
+	width: 288px;
+	margin-right: 36px;
+	margin-left: 36px;
+	height: 50px;
+}
+
+#container #panel #log #bos #mail {
+	height: 70px;
+	width: 288px;
+	margin-left:15px;
+}
+#container #panel #log #bos #mail #form1 #email #pass {
+	height: 50px;
+	width: 288px;
+	margin-left:70px;
+}
+#container #panel #log #button a #toplu {
+	height: 80px;
+	width: 288px;
+	margin-right: 60px;
+	margin-left: 36px;
+}
+#container #panel #log #toplu p #reset {
+	height: 70px;
+	width: 150px;
+	margin-left: 100px;
+}
+
+.bigText{
+	
+		height:30px;}
+#container #panel #log #toplu p {
+	font-size: 12px;
+}
+#container #panel #log #toplu p {
+	font-size: 14px;
+	list-style-type: none;
+	text-decoration: none;
+}
+#panelaccount{
+	height: 450px;
+	width: 540px;
+	margin-left: 220px;
+	margin-right: 220px;
+	margin-top: 19px;
+}
+#panelleft{
+	height: auto;
+	width: 270 px;
+	float:left;
+}
+#panelright{
+	height: auto;
+	width: 270 px;
+	float:left;
+}
+#resetpanel{
+	height:900 px;
+	width:50 px;
+	margin-left:100 px;
+	margin-right:100 px;
+	}
+#ceventpanel{
+	height: auto;
+	width: 800px;
+	margin-left: 90px;
+	margin-right: 90px;
+	margin-top: 15px;
+}
+#ceventpanelalt{
+	height:auto;
+	width: 800px;
+	margin-left: 50px;
+	}
+#textarea{
+	resize:none;
+	height: 100px;
+	width: 300px;
+}
+#sharepanel{
+	height:auto
+	width:800px;
+	margin-left:90px;
+	margin-right:90px;
+	}
+#sharepanelalt{
+	height:auto;
+	width: 800px;
+	margin-left: 50px;
+	}
+#mailarea{
+	margin-left:50px;
+	}
+#passwordarea{
+	margin-left:50px;
+}
+#loginbtn{
+	margin-left:70px;}
+#remfor{
+	width:360px;
+	margin-top:20px;
+	}
+#rem{
+	width: 180px;
+	float: left;
+	font-size: 14px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	}
+#for{
+	width: 180px;
+	float: right;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	
+	
+	}
+#accountdiv{
+	height:auto;
+	width:700px;}
+#homepanel{
+		height: auto;
+	width: 800px;
+	margin-left: 90px;
+	margin-right: 90px;
+	margin-top: 15px;
+	}
+#homepanelleft{
+	height:auto;
+	width:200px;
+	float:left;
+	
+	}
+#homepanelright{
+	height:auto;
+	width:600px;
+	margin-left:200px;
+}
+#myevents{
+	height: auto;
+	width: 800px;
+	margin-left:90px;
+	margin-top: 15px;
+}
+#myeventsleft{
+	height:auto;
+	width:200px;
+	float:left;
+	
+	}
+#myeventsright{
+	height:auto;
+	width:600px;
+	margin-left:200px;}
+

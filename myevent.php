@@ -7,7 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-  <title>Document</title>
+  <title>olayVar</title>
 </head>
 <body>
     <?php
@@ -24,8 +24,10 @@
         echo "Description: ".$row[7]."<br/>";
         echo "User id: ".$row[8]."<br/>";
         echo "Quato: ".$row[9]."<br/>";
+        echo '<a href="editEvent.php?eid='.$row[0].'">'."Edit Event".'</a>';
         echo "<hr/>";
         $logo_id = $row[6];
+        
     }
     $sql = "select path from logo where l_id ="."$logo_id";
     echo $sql."<br/>";
