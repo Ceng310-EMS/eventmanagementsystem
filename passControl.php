@@ -46,7 +46,7 @@ function MM_swapImage() { //v3.0
 <body onload="MM_preloadImages('malzemeler/ylogo1.png')">
   <?php
   session_start();
-  
+
   require 'database.php';
   ?>
 <div id="container">
@@ -81,8 +81,17 @@ function MM_swapImage() { //v3.0
   <?php //kontrol noktasi
   $userName=$_POST["userName"];
   $pass=$_POST["pass"];
-  
+
   $query="SELECT * FROM \"User\" WHERE \"username\"='".$userName."' AND pass='".$pass."' limit 1";
+  $notactive = "SELECT * FROM \"User\" WHERE \"username\" ='".$userName."' AND status='0'";
+   if(pg_num_rows(pg_query($_SESSION["connect"],$notactive)) > 0){
+        echo "Please activate your account with sended mail.";
+        header("Refresh: 3; url=index.php");
+         die();
+      }
+              $query="SELECT * FROM \"User\" WHERE \"username\"='".$userName."' AND pass='".$pass."' AND status='1' limit 1";
+
+
   $isTruee = pg_query($_SESSION["connect"], $query);
   $values = pg_fetch_array($isTruee, NULL, PGSQL_ASSOC);
   $numRows=pg_num_rows($isTruee);
@@ -93,7 +102,7 @@ function MM_swapImage() { //v3.0
     $_SESSION["id"] = $values["id"];
     $message= "Welcome ".$userName."<br> Wait while redirecting please";
     $ifPass=true;
-    
+
     //header("Refresh: 3; url=home.php");
 
   }
@@ -101,7 +110,7 @@ function MM_swapImage() { //v3.0
   {
     $message= "Wrong User Name Password Combination<br>Redirecting";
     $ifPass=false;
-    
+
     //header("Refresh: 3; url=login.php");
   }
 //}
@@ -111,9 +120,9 @@ pg_close($_SESSION["connect"]);
 
             </div>
         </form>
-        
+
     </div>
-   
+
 </div>
 <script src "js/bootstrap.js"></script>
 <?php
