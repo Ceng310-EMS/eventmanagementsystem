@@ -1,5 +1,5 @@
 <?php
-    require 'loginCheck.php';
+    
     require 'database.php';
 ?>
 
@@ -8,7 +8,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
+<title>Contact Us</title>
 <link href="style.css" rel="stylesheet" type="text/css" />
 <link type ="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
 <style type="text/css">
@@ -113,44 +113,15 @@ margin0;  list-style-type: none;
   <div id="divider"><img src="malzemeler/divider.png" width="980" height="26" /></div>
 <div id="bosluk"></div>
     <div id="myevents">     
-        <?php
-
-         $e_id = $_POST["selectedEvent"];
-
-        $resource = pg_query($_SESSION["connect"],"select * from event where e_id = $e_id");
-    while($row=pg_fetch_array($resource)){
-        echo "Event Number: ".$row[0]."<br/>";
-        echo "Title: ".$row[1]."<br/>";
-        echo "Type: ".$row[2]."<br/>";
-        echo "Topic: ".$row[3]."<br/>";
-        echo "Location: ".$row[4]."<br/>";
-        echo "Date: ".$row[5]."<br/>";
-        echo "Logo id: ".$row[6]."<br/>";
-        echo "Description: ".$row[7]."<br/>";
-        echo "User id: ".$row[8]."<br/>";
-        echo "Quato: ".$row[9]."<br/>";
         
-        $logo_id = $row[6];
-        $sql = "select path from logo where l_id ="."$logo_id";
-        $info = pg_query($_SESSION["connect"],$sql);
-        while($data =pg_fetch_array($info)){
-            $path= "logo/".$data[0];
-            echo '<img src="'.$path.'" with=100 height=100/>'."<br/>";
-        }
-        echo "<hr/>";
-        
-    }
-    ?>
-
-     <form action="submitEvent.php" method="POST">
-	  <input type="hidden" name ="selectedEvent" value =" <?php echo $e_id;?>" />
-    <input type="submit" value="Join"/>
-
-	</form>
+        	<form action="reset.php" method="post">
+        		<input type="text" name="email" id="email" /><br>
+        		
+        		<input type="submit" value="Send" />
+        	</form>
 
 
-
-  
+     
     
      </div>   
        

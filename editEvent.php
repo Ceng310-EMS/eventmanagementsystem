@@ -72,10 +72,10 @@ function MM_swapImage() { //v3.0
       <ul>
        <li><a href="createEvent.php">Create Event</a></li>
         <li><a href="myevent.php">My Events</a></li>        
-        <li><a href="home.php">My Profile</a></li>
+        <li><a href="events.php">Find Events</a></li>
         <li><a href="account.html">Account</a></li>
         <li><a href="logout.php">Logout</a></li>
-        <li><a href="home.php">Home</a></li>
+        <li><a href="home.php">My Profile</a></li>
       </ul>
     </div>
   </div>
@@ -107,8 +107,8 @@ function MM_swapImage() { //v3.0
         <option value="Other">Other</option>
         </select>
         <label><h5>Event Topic<span style="color:#F00">*</span></h5></label>
-        <select class="form-control">
         <select name="topic" class="form-control">
+        <!--<select name="topic" class="form-control">-->
         <option value="" disabled selected style="display:none;">Select a Topic </option>
         <option value="Business & Professional">Business & Professional</option>
         <option value="Community & Culture">Community & Culture</option>

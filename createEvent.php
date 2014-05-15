@@ -51,10 +51,10 @@ function MM_swapImage() { //v3.0
       <ul>
          <li><a href="createEvent.php">Create Event</a></li>
         <li><a href="myevent.php">My Events</a></li>        
-        <li><a href="home.php">My Profile</a></li>
+        <li><a href="events.php">Find Events</a></li>
         <li><a href="account.html">Account</a></li>
         <li><a href="logout.php">Logout</a></li>
-        <li><a href="home.php">Home</a></li>
+        <li><a href="home.php">My Profile</a></li>
       </ul>
     </div>
   </div>
@@ -110,7 +110,7 @@ function MM_swapImage() { //v3.0
         <label><h5>Location</h5></label>
         <input type="text" class="span7" name="location" id="location" placeholder="Specify where your event will happen" required="required" />
         <label><h5>Date and Time<span style="color:#F00">*</span></h5></label>
-        <input type="datetime-local" name="startDate" id="startDate" required="required"/>&nbsp;&nbsp;&nbsp;<h7> & </h7>&nbsp;&nbsp;&nbsp;
+        <input type="datetime-local" name="startDate" id="startDate" required="required"/>&nbsp;&nbsp;&nbsp;<h7>  </h7>&nbsp;&nbsp;&nbsp;
         <label><h5>Event Logo</h5></label>
         <img name="" width="97" height="94" alt="" src="malzemeler/default_upload_logo.gif" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <!--<button type="button" class="btn">Choose File</button><br/>-->

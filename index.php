@@ -139,7 +139,7 @@ margin0;	list-style-type: none;
                 
             echo "
           <div id=\"s$i\" class=\"icerik\">
-          		<img src=\"$path\"/>
+          		<img src=\"$path\" width=\"500px\" height=\"100px\"/>
           			<div class=\"yazi\">
                 		<strong>$title</strong>
                     	<span>$description</span>

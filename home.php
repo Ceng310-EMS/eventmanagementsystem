@@ -56,10 +56,10 @@ function MM_swapImage() { //v3.0
      <ul>
        <li><a href="createEvent.php">Create Event</a></li>
         <li><a href="myevent.php">My Events</a></li>        
-        <li><a href="home.php">My Profile</a></li>
+        <li><a href="events.php">Find Events</a></li>
         <li><a href="account.html">Account</a></li>
         <li><a href="logout.php">Logout</a></li>
-        <li><a href="home.php">Home</a></li>
+        <li><a href="home.php">My Profile</a></li>
      </ul>
    </div>
  </div>

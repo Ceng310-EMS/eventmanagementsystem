@@ -13,7 +13,7 @@
         $path = NULL;
         if(isset($_FILES["file"]["name"])){
         $directory = $_SERVER['DOCUMENT_ROOT'] . '/photo/';
-    	echo $directory;
+    	echo $directory; 
     	$allowedExts = array("gif", "jpeg", "jpg", "png");
 	    $temp = explode(".", $_FILES["file"]["name"]);
 	    $extension = end($temp);
@@ -25,7 +25,8 @@
 		    || ($_FILES["file"]["type"] == "image/x-png")
 		    || ($_FILES["file"]["type"] == "image/png"))
 		    && ($_FILES["file"]["size"] < 2000000)
-		    && in_array($extension, $allowedExts)) {
+		    && in_array($extension, $allowedExts)) 
+		     {
 		      if ($_FILES["file"]["error"] > 0) {
 		        echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
 		      } else {
@@ -55,7 +56,7 @@
 			}
 			    $description = $_POST["description"];
 				$insertDescription = "Update \"User\" set description ="."'$description'"." where id="."$id";
-				echo $insertDescription;
+				echo $insertDescription; 
 				pg_query($_SESSION["connect"],$insertDescription);
 
 
@@ -64,11 +65,11 @@
 			    $resource = pg_query($_SESSION["connect"],$getId);
 			    while($p_id = pg_fetch_array($resource)){
 			      $photo_id = $p_id[0];
-			      echo $photo_id;
+			      echo $photo_id; 
 			    }
 			    
 			    $insertPhotoid = "Update \"User\" set p_id ="."$photo_id"." where id="."$id";
-			    echo $insertPhotoid;
+			    echo $insertPhotoid; 
 			    pg_query($_SESSION["connect"],$insertPhotoid);
 		
 
